@@ -1,7 +1,15 @@
+import sys
 from stats import get_text, count_words, count_characters, sorted_letter_counts
 
 def main():
-        book_path = "books/frankenstein.txt"
+        # sys.argv is a list populated based on what arguments are given in the command line, anything input in the CLI after python3 would be an argument
+        # so the sys.argv list if program is used properly would be [main.py, <path to book>]
+        if len(sys.argv) == 1:
+             print("Usage: python3 main.py <path_to_book>")
+             #sys function that tells the code to exit out using a number, in this case "1" which typically represents general error
+             sys.exit(1)
+        # sys.argv[1] would be the path to the book, explanation in comments and if function above
+        book_path = sys.argv[1]
         text = get_text(book_path)
         num_words = count_words(text)
         num_chars = count_characters(text)
