@@ -14,3 +14,18 @@ def count_characters(text):
         else:
             letter_count[s_letter] = 1
     return letter_count
+
+def sorted(item_list):
+    return item_list["num"]
+ 
+def sorted_letter_counts(dictionary):
+    letter_dicts = []
+    for entry in dictionary:
+        char_dict = {}
+        char_dict["char"] = entry
+        char_dict["num"] = dictionary[entry]
+        letter_dicts.append(char_dict)
+    
+    letter_dicts.sort(reverse=True, key=sorted)
+    return letter_dicts
+
